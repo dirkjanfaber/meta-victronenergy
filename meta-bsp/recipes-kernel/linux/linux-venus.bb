@@ -14,7 +14,9 @@ LINUX_VERSION_EXTENSION = "-venus-${LINUX_VERSION_VENUS}"
 
 PV = "${LINUX_VERSION}${LINUX_VERSION_EXTENSION}"
 
-SRC_URI = "git://github.com/victronenergy/linux.git;protocol=https;branch=venus-${LINUX_VERSION};tag=v${PV}"
+SRC_URI = "git://github.com/victronenergy/linux.git;protocol=https;branch=mans/venus"
+SRCREV = "${AUTOREV}"
+PV_append = "+git${SRCPV}"
 S = "${WORKDIR}/git"
 
 do_configure_append() {
