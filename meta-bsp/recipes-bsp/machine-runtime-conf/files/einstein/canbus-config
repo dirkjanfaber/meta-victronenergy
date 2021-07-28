@@ -1,10 +1,8 @@
 #!/bin/sh
 
-if [ "$1" == "can0" ]; then
-	echo any
-elif [ "$1" == "can1" ]; then
-	echo forced-canbus-bms
-else
-	echo any
-fi
-
+case $1 in
+    vecan*) echo any ;;
+    can0)   echo any ;;
+    can1)   echo forced-canbus-bms ;;
+    *)      echo any ;;
+esac

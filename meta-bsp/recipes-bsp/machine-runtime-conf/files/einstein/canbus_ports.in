@@ -1,2 +1,4 @@
-can0
-can1
+can0	% victronenergy,cerbo-gx
+can1	% victronenergy,cerbo-gx
+vecan0	% victronenergy,cerbo-gx-b1
+vecan1	% victronenergy,cerbo-gx-b1
