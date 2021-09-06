@@ -22,4 +22,6 @@ if [ ! -f $VICTRON ]; then
 	touch $VICTRON
 fi
 
+export TZ=$(dbus -y com.victronenergy.settings /Settings/System/TimeZone GetValue | tr -d "'")
+
 exec /usr/lib/node_modules/node-red/red.js $@ --userDir ${NODE_RED}

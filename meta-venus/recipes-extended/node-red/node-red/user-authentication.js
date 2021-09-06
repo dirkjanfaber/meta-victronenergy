@@ -3,6 +3,7 @@ const fs = require('fs')
 const debug = require('debug')('user-authentication')
 
 const adminUserName = 'admin'
+const passwordFileName = '/data/conf/vncpassword.txt'
 
 module.exports = {
   type: "credentials",
@@ -34,7 +35,7 @@ module.exports = {
           }
         })
       } else {
-        debug('bad usernamw')
+        debug('bad username')
         resolve(null)
       }
     })
@@ -54,9 +55,13 @@ module.exports = {
 
 function getPassword() {
   try {
-    const data = String(fs.readFileSync('/data/conf/vncpassword.txt')).trim()
+    const data = String(fs.readFileSync(passwordFileName)).trim()
     return data.length > 0 ? data : null
   } catch (err) {
+    if ( err.errno === -2 ) {
+      debug(`${passwordFileName} does not exist (yet)`);
+      return null
+    }
     console.error(err)
     return null
   }
