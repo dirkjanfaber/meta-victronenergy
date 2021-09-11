@@ -13,7 +13,8 @@ SRC_URI = "\
     file://npm-shrinkwrap.json \
 "
 
-SRC_URI[md5sum] = "687e04a6071fac61ba536541466cc91b"
-SRC_URI[sha256sum] = "a61cb153b0878e72ac6fbb31fee238748fe6538c0003178e885f7355efa4bcee"
+# Careful! When updating the version, also npm-shrinkwrap.json must be updated
+
+SRC_URI[sha256sum] = "893913597ee5b751133815525ed62d04e164c73f7e69e44d9ac4889005216354"
 
 inherit npmve
