@@ -9,11 +9,11 @@ RDEPENDS_${PN} += "\
 "
 
 SRC_URI = "\
-    https://registry.npmjs.org/@${NPM_ORG}/${PN}/-/${PN}-${PV}.tgz;unpack=0 \
+    https://github.com/victronenergy/${PN}/archive/refs/tags/v${PV}.tar.gz;downloadfilename=${PN}-${PV}.tgz;unpack=0 \
     file://npm-shrinkwrap.json \
 "
 
-SRC_URI[md5sum] = "89f6345cd84b283f4e1fcb091fc3c656"
-SRC_URI[sha256sum] = "94f61186cc2043c01ccce77f98bcead2989316045b341c9ec18bbade74d47f78"
+SRC_URI[md5sum] = "687e04a6071fac61ba536541466cc91b"
+SRC_URI[sha256sum] = "a61cb153b0878e72ac6fbb31fee238748fe6538c0003178e885f7355efa4bcee"
 
 inherit npmve
