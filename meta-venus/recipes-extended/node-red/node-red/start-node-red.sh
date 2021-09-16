@@ -1,7 +1,8 @@
 #!/bin/bash
 exec 2>&1
 
-NODE_RED="/data/home/root/.node-red"
+VENUS_LARGE=$(get-large-data -t)/venus-large || { svc -d .; exit 1; }
+NODE_RED="$VENUS_LARGE/node-red"
 DATA_MODULES="$NODE_RED/node_modules"
 VICTRON="$DATA_MODULES/@victronenergy"
 DEFAULTCONF="/usr/lib/node_modules/node-red/defaults"
