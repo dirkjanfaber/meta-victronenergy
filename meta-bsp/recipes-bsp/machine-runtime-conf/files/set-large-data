@@ -1,0 +1,11 @@
+#! /bin/sh
+
+set -e
+
+dir=$1
+
+test -d "$dir"
+mkdir -p "$dir/venus-large"
+date +%s >"$dir/venus-large/.timestamp"
+
+svc -t /service/node-red /service/signalk-server

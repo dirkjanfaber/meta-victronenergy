@@ -1,0 +1,21 @@
+#! /bin/sh
+
+get_large_data() {
+    for d; do
+        t=$(head -n1 "$d/venus-large/.timestamp" 2>/dev/null) || continue
+        expr "$t" : '[0-9]*$' >/dev/null || continue
+        echo "$t $d"
+    done | sort -nr | head -n1 | cut -d' ' -f2
+}
+
+mounts=$(awk '/\/run\/media/ { print $2 }' /proc/mounts)
+
+dir=$(get_large_data /data $mounts)
+test -z "$dir" && exit 1
+
+if [ "$1" = -t ]; then
+    mkdir -p "$dir/venus-large"
+    date +%s >"$dir/venus-large/.timestamp"
+fi
+
+echo "$dir"
