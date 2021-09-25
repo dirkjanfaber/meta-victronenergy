@@ -13,8 +13,9 @@ SRC_URI = "\
     file://npm-shrinkwrap.json \
 "
 
-# Careful! When updating the version, also npm-shrinkwrap.json must be updated
+# Careful! When updating the version, the npm-shrinkwrap.json must be updated as well; it defines
+# the version of all dependencies, and they are many.
 
-SRC_URI[sha256sum] = "893913597ee5b751133815525ed62d04e164c73f7e69e44d9ac4889005216354"
+SRC_URI[sha256sum] = "490fe014624ba9bb1f87fd37ac708561caa0ddbf686680bdc5b9ab064cb0554f"
 
 inherit npmve
