@@ -10,7 +10,7 @@ get_setting() {
     dbus-send --print-reply=literal --system --type=method_call \
               --dest=com.victronenergy.settings "$1" \
               com.victronenergy.BusItem.GetValue |
-        awk '{ print $3 }'
+        awk '{ print $NF }'
 }
 
 echo "*** Waiting for localsettings..."
