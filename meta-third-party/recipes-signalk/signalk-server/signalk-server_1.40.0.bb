@@ -45,6 +45,5 @@ do_install_append() {
         --target_arch=${NPM_ARCH} \
         --production \
         --no-bin-links \
-        signalk-venus-plugin@1.24.14
+        signalk-venus-plugin@1.25
 }
-
